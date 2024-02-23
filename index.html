@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love-Count-App</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="app.css">
+</head>
+<body>
+    <div class="wrapper" style="padding: 30px;">
+        <div class="container-fluid">
+            <div class="row custom-row no-gutters">
+                <div class="col-md-4 col-12" style="display: flex; justify-content: center; align-items: center;">
+                    <div class="card" style="padding: 10px; width: 80%;">
+                            <div class="row">
+                                <div class="col-md-12 col-6" style="max-height: 50vh;">
+                                    <label for="input_img_boy" style="width: 100%; height: 100%;">
+                                        <img class="img_boy" src="photos/boy.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover;  object-position: center; ;">
+                                    </label>
+                                    <input id="input_img_boy" type="file" style="display: none;" onchange="updateImageClient('.img_boy',this)">
+                                </div>
+                                <div class="col-md-12 col-6">
+                                    <h3 id="boy_name">Tên Bạn Nam</h3>
+                                    <div class="infor" style="height: 100px; overflow-y: scroll;">
+                                        <p id="boy_infor" style="margin-right: 5px;">Thông tin cá nhân</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-12" style="display: flex; justify-content: center; position: relative; align-items: center; cursor: pointer;">
+                  <div class="heart scale" style="width: 80%; height: 80%;" data-toggle="modal" data-target="#my-modal">
+                    <img src="photos/—Pngtree—love heart png transparent background_3574111.png" alt="" style="width: 100%; height: 100%;">
+                  </div>
+                  <div id="my-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="my-modal-title" aria-hidden="true">
+                    <div class="modal-dialog" role="document" style="transform: translateY(-50%); bottom: -50%;">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="my-modal-title">Thông tin của 2 bạn</h5>
+                                <button class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form action="" class="needs-validation" novalidate>
+                                    <div class="form-group">
+                                        <label for="input_name_boy">Nhập tên bạn nam</label>
+                                        <input id="input_name_boy" class="form-control" type="text" name="" required placeholder="vd: Nguyễn Quân">
+                                        <div class="valid-feedback">Hợp lệ</div>
+                                        <div class="invalid-feedback">Không được bỏ trống</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="input_name_boy_infor">Nhập thông tin bạn nam</label>
+                                        <input id="input_name_boy_infor" class="form-control" type="text" name="" required>
+                                        <div class="valid-feedback">Hợp lệ</div>
+                                        <div class="invalid-feedback">Không được bỏ trống</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="input_name_girl">Nhập tên bạn nữ</label>
+                                        <input id="input_name_girl" class="form-control" type="text" name="" required placeholder="vd: Mỹ Duyên">
+                                        <div class="valid-feedback">Hợp lệ</div>
+                                        <div class="invalid-feedback">Không được bỏ trống</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="input_name_girl_infor">Nhập thông tin bạn nữ</label>
+                                        <input id="input_name_girl_infor" class="form-control" type="text" name="" required>
+                                        <div class="valid-feedback">Hợp lệ</div>
+                                        <div class="invalid-feedback">Không được bỏ trống</div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="datetimepicker">Nhập theo định dạng yy/mm/dd</label>
+                                        <input type="text" class="form-control inputDay" id="datetimepicker" required pattern="[0-9][0-9][0-9][0-9]/[0-9][0-9]/[0-9][0-9]" placeholder="vd: 2004/02/06">
+                                        <div class="valid-feedback">Hợp lệ</div>
+                                        <div class="invalid-feedback">Không hợp lệ</div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn1">Ok</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                  </div>
+                  <h3 class="dayItem" style="position: absolute; color: white; font-weight: bold; font-size: 35px; user-select: none;" data-toggle="modal" data-target="#my-modal">
+                    Days Love
+                  </h3>
+                </div>
+                <div class="col-md-4 col-12" style="display: flex; justify-content: center; align-items: center;">
+                    <div class="card" style="padding: 10px; width: 80%;">
+                            <div class="row">
+                                <div class="col-md-12 col-6" style="max-height: 50vh;"">
+                                    <label for="input_img_girl" style="width: 100%; height: 100%;">
+                                        <img class="img_girl" src="photos/girl.jpg" alt="" style="width: 100%; height: 100%; object-fit: cover; object-position: center;">
+                                    </label>
+                                    <input id="input_img_girl" type="file" style="display: none;" onchange="updateImageClient('.img_girl',this)">
+                                </div>
+                                <div class="col-md-12 col-6">
+                                    <h3 id="girl_name">Tên Bạn Nữ</h3>
+                                    <div class="infor" style="height: 100px; overflow-y: scroll;">
+                                        <p id="girl_infor" style="margin-right: 5px;">Thông tin cá nhân</p>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="app.js"></script>
+</html>
